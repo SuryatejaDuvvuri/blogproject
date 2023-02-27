@@ -9,8 +9,10 @@ function Login() {
 
   if (user) {
     return (
-      <div className = "flex flex-row">
-        <h3 className="inline-block px-3 py-2 text-2xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">Hello, {user.displayName}! </h3>
+      <div className="flex flex-row">
+        <h3 className="inline-block px-3 py-2 text-2xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
+          Hello, {user.displayName}!{" "}
+        </h3>
         <SignOut />
       </div>
     );
