@@ -1,17 +1,22 @@
 import { WiDaySunny } from "react-icons/wi";
 import Login from "./Login";
-
 const bar = () => {
   return (
     <nav className="inline-block py-5 px-5 flex flex-row items-center justify-between flex-wrap space-x-4 ">
       <div className="w-full block lg:w-auto text-3xl tracking-wider ">
-        <a href="https://suryatejaduvvuri.github.io/" class="mr-3 p-3 rounded-lg hover:text-green-400">
+        <a
+          href="https://suryatejaduvvuri.github.io/"
+          class="mr-3 p-3 rounded-lg hover:text-green-400"
+        >
           Home
         </a>
-        <a href="https://suryatejaduvvuri.github.io/About.html" class="mr-3 p-3 rounded-lg hover:text-green-400">
+        <a
+          href="https://suryatejaduvvuri.github.io/About.html"
+          class="mr-3 p-3 rounded-lg hover:text-green-400"
+        >
           About
         </a>
-        <a href="./App.js" class="mr-3 p-3 rounded-lg hover:text-green-400">
+        <a href="#" class="mr-3 p-3 rounded-lg hover:text-green-400">
           Articles
         </a>
       </div>
