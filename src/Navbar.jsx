@@ -22,7 +22,10 @@ const bar = () => {
       </div>
       <div class="flex flex-row mt-4 lg:mt-0 mr-0">
         <Login />
-        <WiDaySunny size="45" className="cursor-pointer hover:scale-125 duration-200" />
+        <WiDaySunny
+          size="45"
+          className="cursor-pointer hover:scale-125 duration-200"
+        />
       </div>
     </nav>
   );

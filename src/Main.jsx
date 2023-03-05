@@ -9,8 +9,10 @@ const titles = () => {
       <h1 class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500">
         Articles
       </h1>
-      <p className = "text-gray-300 font-semibold tracking-wide">A place to hear insights and other interesting things!</p>
-      <h2 className = "font-thin prose-xl text-gray-300 ">🌇 Recent posts</h2>
+      <p className="text-gray-300 font-semibold tracking-wide">
+        A place to hear insights and other interesting things!
+      </p>
+      <h2 className="font-thin prose-xl text-gray-300 ">🌇 Recent posts</h2>
       <div className="flex flex-row gap-30 justify-center items-center mt-4">
         <Link to="/Posts" className="hover:cursor-pointer">
           <section className="group inline-block items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-sky-500 rounded-xl shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
