@@ -24,7 +24,7 @@ db.collection('articles').onSnapshot((snapshot) => {
 
 const posts = () => {
   return (
-    <div className="h-screen text-white bg-primary overflow-auto p-6 box-border ">
+    <div className="text-black bg-light h-screen dark:text-white dark:bg-primary overflow-auto p-6 box-border ">
       <ul className="flex text-2xl space-x-4 py-5 px-5 ">
         <li>
           <Link to="/">
@@ -44,12 +44,12 @@ const posts = () => {
           <BsNewspaper size="30" className="pl-1.5 mr-2 ml-2" />
           10 min read
         </h5>
-        <h2 className="m-2 p-3 first-letter:text-red-400 font-bold text-center text-4xl break-words overflow-hidden">
+        <h2 id = "title" className="m-2 p-3 font-bold text-center text-4xl break-words overflow-hidden first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) ">
           Search trees with cheese: What Computer Science tells us
         </h2>
         <h6 className="prose-xl font-light">by Surya</h6>
         <div className="m-2 p-4 break-words box-border h-fit max-w-prose prose-lg leading-loose">
-          <p className="first-letter:text-red-400  first-letter:font-bold">
+          <p id = "title" className="first-letter:font-bold first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) ">
             The longest word in any of the major English language dictionaries
             is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers
             to a lung disease contracted from the inhalation of very fine silica
@@ -142,16 +142,6 @@ int PrintJob::getPages ( ){
       <Footer />
 
       <Outlet />
-      {/* 
-      <div className="posts">
-        <div className="firstPost">
-          <img src="" alt="first" />
-          <div className="texts">
-            <h1>Title</h1>
-            <p>Description</p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
