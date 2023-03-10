@@ -1,5 +1,4 @@
 import { WiDaySunny } from "react-icons/wi";
-import {useState} from "react";
 import Login from "./Login";
 
 const bar = () => {
