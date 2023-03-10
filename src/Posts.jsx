@@ -24,7 +24,8 @@ db.collection('articles').onSnapshot((snapshot) => {
 
 const posts = () => {
   return (
-    <div className="text-black bg-light h-screen dark:text-white dark:bg-primary overflow-auto p-6 box-border ">
+    // dark:text-white dark:bg-primary
+    <div className="text-black bg-light h-screen  overflow-auto p-6 box-border ">
       <ul className="flex text-2xl space-x-4 py-5 px-5 ">
         <li>
           <Link to="/">
@@ -69,7 +70,8 @@ const posts = () => {
             silicosis. */}
             
           </p>
-          <Prism withLineNumbers colorScheme="dark" language="cpp">
+          {/* colorScheme="dark" */}
+          <Prism withLineNumbers colorScheme="light" language="cpp">
             {`#include "PrintJob.h"
 
 PrintJob::PrintJob ( int setP, int setJ, int numP ):priority(setP), jobNumber(setJ), numPages(numP){}
@@ -96,12 +98,13 @@ int PrintJob::getPages ( ){
           </ul>
           <p>And tables like this</p>
           <table className="w-full table-auto rounded-lg text-gray-400">
-            <thead className="bg-gray-700 border-b">
+          {/* dark:bg-gray-700 */}
+            <thead className="bg-light border-gray-900 border-b">
               <tr>
-                <th scope="col" className="px-6 py-3 border-r">
+                <th scope="col" className="px-6 py-3 border-r border-gray-900">
                   Head1
                 </th>
-                <th scope="col" className="px-6 py-3 border-r">
+                <th scope="col" className="px-6 py-3 border-r border-gray-900">
                   Head1
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -111,22 +114,23 @@ int PrintJob::getPages ( ){
             </thead>
 
             <tbody>
-              <tr className=" border-gray-500 bg-gray-800 border-b">
-                <th scope="col" className="px-6 py-3 border-r">
+              <tr className=" border-gray-900 border-b">
+                <th scope="col" className="px-6 py-3 border-r border-gray-900">
                   ⛏️ Hello
                 </th>
-                <th scope="col" className="px-6 py-3 border-r">
+                <th scope="col" className="px-6 py-3 border-r border-gray-900">
                   🧠Hello
                 </th>
                 <th scope="col" className="px-6 py-3 ">
                   Hello
                 </th>
               </tr>
-              <tr className=" border-gray-500 bg-gray-800">
-                <th scope="col" className="px-6 py-3 border-r">
+              {/* dark:border-gray-500 */}
+              <tr className=" border-gray-900 ">
+                <th scope="col" className="px-6 py-3 border-r border-gray-900">
                   😨Hello
                 </th>
-                <th scope="col" className="px-6 py-3 border-r">
+                <th scope="col" className="px-6 py-3 border-r border-gray-900">
                   🌏Hello
                 </th>
                 <th scope="col" className="px-6 py-3 ">

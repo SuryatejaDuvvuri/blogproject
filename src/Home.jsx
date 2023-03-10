@@ -9,7 +9,8 @@ function Home() {
 
 
   return (
-    <div className="h-screen text-white bg-light dark:bg-primary overflow-auto">
+    // dark:bg-primary
+    <div className="h-screen text-white bg-light  overflow-auto">
       <Navbar />
       <Main />
 

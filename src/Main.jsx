@@ -6,43 +6,48 @@ import { Link } from "react-router-dom";
 const titles = () => {
   return (
     <div class="flex flex-col justify-center items-center prose-xl mb-7">
-      {/* light:from-cyan-500 to-lightFourth */}
-      <h1 class="font-extrabold text-6xl text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500">
+      {/* dark: from-red-500 to-yellow-500 */}
+      <h1 class="font-extrabold text-6xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth ">
         Articles
       </h1>
-      <p className = "text-gray-900 dark:text-gray-300 font-semibold tracking-wide">A place to hear insights and other interesting things!</p>
-      <h2 className = "font-thin prose-xl text-gray-900 dark:text-gray-300 ">🌇 Recent posts</h2>
+      {/* dark:text-gray-300  */}
+      <p className = "text-gray-700 font-semibold tracking-wide">A place to hear insights and other interesting things!</p>
+      {/* dark:text-gray-300 */}
+      <h2 className = "font-thin prose-xl text-gray-600  ">🌇 Recent posts</h2>
       <div className="flex flex-row gap-30 justify-center items-center mt-4">
         <Link to="/Posts" className="hover:cursor-pointer">
-          <section className="group inline-block items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-black dark:border-sky-500 rounded-xl shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
+        {/* dark:border-sky-500 rounded-xl  */}
+          <section className="group inline-block rounded-xl items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-black shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
             <img
               src="https://s.hdnux.com/photos/01/23/46/62/21916843/7/rawImage.jpg"
               alt="sunset"
               className="object-fill w-screen"
             />
             <div className="group flex flex-row mt-5 flex-wrap flex-grow ">
-              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth dark:(from-red-500 to-yellow-500) bg-black rounded-md px-3 py-1 mr-6 ">
+            {/* dark:(from-red-500 to-yellow-500) */}
+              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth rounded-md px-3 py-1 mr-6 ">
                 NEW!
               </div>
-              <BsNewspaper size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="font-sans px-3 py-1 mr-4 text-black dark:text-white  text-opacity-60">
+              {/* dark:text-white */}
+              <BsNewspaper size="38" className="text-black  pl-1.5" />
+              <div className="font-sans px-3 py-1 mr-4 text-black text-opacity-60">
                 Articles
               </div>
-              <time className="px-1.5 py-1 mr-3 text-black dark:text-white text-opacity-60">
+              <time className="px-1.5 py-1 mr-3 text-black text-opacity-60">
                 April 7, 2023
               </time>
 
-              <GiSandsOfTime size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="px-3 py-1 mr-3 text-black dark:text-white text-opacity-60 mb-7">
+              <GiSandsOfTime size="38" className="text-black pl-1.5" />
+              <div className="px-3 py-1 mr-3 text-black text-opacity-60 mb-7">
                 10 min read
               </div>
             </div>
-
-            <h1 className="mb-2 text-3xl font-bold text-black dark:text-blue-200 tracking-tight">
+            {/* dark:text-blue-200  */}
+            <h1 className="mb-2 text-3xl font-bold text-black tracking-tight">
               First blog
             </h1>
-
-            <p className="mb-4 font-sans text-black dark:text-white ">
+            {/* dark:text-white */}
+            <p className="mb-4 font-sans text-black ">
               This blog is a community that welcomes Fellows from a wide range
               of experiences and backgrounds. What perspective or experience
               will you bring to the fellowship to strengthen our community?
@@ -50,110 +55,125 @@ const titles = () => {
           </section>
         </Link>
 
-        <section className="group inline-block items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-black dark:border-sky-500 rounded-xl shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
+        <Link to="/Posts" className="hover:cursor-pointer">
+        {/* dark:border-sky-500 rounded-xl  */}
+          <section className="group inline-block items-center justify-center space-y-2 rounded-xl max-h-lg max-w-md p-3 border-double border-8 border-black shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
             <img
               src="https://s.hdnux.com/photos/01/23/46/62/21916843/7/rawImage.jpg"
               alt="sunset"
               className="object-fill w-screen"
             />
             <div className="group flex flex-row mt-5 flex-wrap flex-grow ">
-              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth dark:(from-red-500 to-yellow-500) bg-black rounded-md px-3 py-1 mr-6 ">
+            {/* dark:(from-red-500 to-yellow-500) */}
+              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth rounded-md px-3 py-1 mr-6 ">
                 NEW!
               </div>
-              <BsNewspaper size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="font-sans px-3 py-1 mr-4 text-black dark:text-white  text-opacity-60">
+              {/* dark:text-white */}
+              <BsNewspaper size="38" className="text-black  pl-1.5" />
+              <div className="font-sans px-3 py-1 mr-4 text-black text-opacity-60">
                 Articles
               </div>
-              <time className="px-1.5 py-1 mr-3 text-black dark:text-white text-opacity-60">
+              <time className="px-1.5 py-1 mr-3 text-black text-opacity-60">
                 April 7, 2023
               </time>
 
-              <GiSandsOfTime size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="px-3 py-1 mr-3 text-black dark:text-white text-opacity-60 mb-7">
+              <GiSandsOfTime size="38" className="text-black pl-1.5" />
+              <div className="px-3 py-1 mr-3 text-black text-opacity-60 mb-7">
                 10 min read
               </div>
             </div>
-
-            <h1 className="mb-2 text-3xl font-bold text-black dark:text-blue-200 tracking-tight">
+            {/* dark:text-blue-200  */}
+            <h1 className="mb-2 text-3xl font-bold text-black tracking-tight">
               First blog
             </h1>
-
-            <p className="mb-4 font-sans text-black dark:text-white ">
+            {/* dark:text-white */}
+            <p className="mb-4 font-sans text-black ">
               This blog is a community that welcomes Fellows from a wide range
               of experiences and backgrounds. What perspective or experience
               will you bring to the fellowship to strengthen our community?
             </p>
           </section>
+        </Link>
       </div>
       <div class="flex flex-row gap-30 justify-center items-center mt-4">
-      <section className="group inline-block items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-black dark:border-sky-500 rounded-xl shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
+      <Link to="/Posts" className="hover:cursor-pointer">
+        {/* dark:border-sky-500 rounded-xl  */}
+          <section className="group inline-block items-center justify-center space-y-2 rounded-xl max-h-lg max-w-md p-3 border-double border-8 border-black shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
             <img
               src="https://s.hdnux.com/photos/01/23/46/62/21916843/7/rawImage.jpg"
               alt="sunset"
               className="object-fill w-screen"
             />
             <div className="group flex flex-row mt-5 flex-wrap flex-grow ">
-              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth dark:(from-red-500 to-yellow-500) bg-black rounded-md px-3 py-1 mr-6 ">
+            {/* dark:(from-red-500 to-yellow-500) */}
+              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth rounded-md px-3 py-1 mr-6 ">
                 NEW!
               </div>
-              <BsNewspaper size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="font-sans px-3 py-1 mr-4 text-black dark:text-white  text-opacity-60">
+              {/* dark:text-white */}
+              <BsNewspaper size="38" className="text-black  pl-1.5" />
+              <div className="font-sans px-3 py-1 mr-4 text-black text-opacity-60">
                 Articles
               </div>
-              <time className="px-1.5 py-1 mr-3 text-black dark:text-white text-opacity-60">
+              <time className="px-1.5 py-1 mr-3 text-black text-opacity-60">
                 April 7, 2023
               </time>
 
-              <GiSandsOfTime size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="px-3 py-1 mr-3 text-black dark:text-white text-opacity-60 mb-7">
+              <GiSandsOfTime size="38" className="text-black pl-1.5" />
+              <div className="px-3 py-1 mr-3 text-black text-opacity-60 mb-7">
                 10 min read
               </div>
             </div>
-
-            <h1 className="mb-2 text-3xl font-bold text-black dark:text-blue-200 tracking-tight">
+            {/* dark:text-blue-200  */}
+            <h1 className="mb-2 text-3xl font-bold text-black tracking-tight">
               First blog
             </h1>
-
-            <p className="mb-4 font-sans text-black dark:text-white ">
+            {/* dark:text-white */}
+            <p className="mb-4 font-sans text-black ">
               This blog is a community that welcomes Fellows from a wide range
               of experiences and backgrounds. What perspective or experience
               will you bring to the fellowship to strengthen our community?
             </p>
           </section>
-       <section className="group inline-block items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-black dark:border-sky-500 rounded-xl shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
+        </Link>
+        <Link to="/Posts" className="hover:cursor-pointer">
+        {/* dark:border-sky-500 rounded-xl  */}
+          <section className="group inline-block items-center justify-center space-y-2 rounded-xl max-h-lg max-w-md p-3 border-double border-8 border-black shadow-md shadow-emerald-100 mr-7 hover:scale-110 duration-300">
             <img
               src="https://s.hdnux.com/photos/01/23/46/62/21916843/7/rawImage.jpg"
               alt="sunset"
               className="object-fill w-screen"
             />
             <div className="group flex flex-row mt-5 flex-wrap flex-grow ">
-              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth dark:(from-red-500 to-yellow-500) bg-black rounded-md px-3 py-1 mr-6 ">
+            {/* dark:(from-red-500 to-yellow-500) */}
+              <div className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth rounded-md px-3 py-1 mr-6 ">
                 NEW!
               </div>
-              <BsNewspaper size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="font-sans px-3 py-1 mr-4 text-black dark:text-white  text-opacity-60">
+              {/* dark:text-white */}
+              <BsNewspaper size="38" className="text-black  pl-1.5" />
+              <div className="font-sans px-3 py-1 mr-4 text-black text-opacity-60">
                 Articles
               </div>
-              <time className="px-1.5 py-1 mr-3 text-black dark:text-white text-opacity-60">
+              <time className="px-1.5 py-1 mr-3 text-black text-opacity-60">
                 April 7, 2023
               </time>
 
-              <GiSandsOfTime size="38" className="text-black dark:text-white pl-1.5" />
-              <div className="px-3 py-1 mr-3 text-black dark:text-white text-opacity-60 mb-7">
+              <GiSandsOfTime size="38" className="text-black pl-1.5" />
+              <div className="px-3 py-1 mr-3 text-black text-opacity-60 mb-7">
                 10 min read
               </div>
             </div>
-
-            <h1 className="mb-2 text-3xl font-bold text-black dark:text-blue-200 tracking-tight">
+            {/* dark:text-blue-200  */}
+            <h1 className="mb-2 text-3xl font-bold text-black tracking-tight">
               First blog
             </h1>
-
-            <p className="mb-4 font-sans text-black dark:text-white ">
+            {/* dark:text-white */}
+            <p className="mb-4 font-sans text-black ">
               This blog is a community that welcomes Fellows from a wide range
               of experiences and backgrounds. What perspective or experience
               will you bring to the fellowship to strengthen our community?
             </p>
           </section>
+        </Link>
       </div>
     </div>
   );
