@@ -13,13 +13,13 @@ const design = () => {
 
         <div className="flex flex-wrap items-center space-x-8 mx-6 ">
           <a
-            href="#"
+            href="https://www.linkedin.com/in/suryateja-duvvuri-22b377162/"
             className=" hover:scale-150 duration-200 text-gray-400 hover:text-gray-600 dark:(hover:text-gray-800)"
           >
             <FaLinkedin size="25" />
           </a>
           <a
-            href="#"
+            href="https://twitter.com/SuryatejaDuvvu1"
             className="hover:scale-150 duration-200 text-gray-400 hover:text-gray-600 dark:(hover:text-gray-300)"
           >
             <FaTwitter size="25" />
