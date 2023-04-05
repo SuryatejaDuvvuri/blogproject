@@ -36,7 +36,7 @@ function SignIn() {
       <button
         onClick={signInWithGoogle} /*Dark: (hover:from-red-500 to-yellow-500) */
         id="login"
-        className="inline-block px-3 py-2 text-black text-lg border rounded-md hover:scale-125 duration-200 border-white hover:text-white hover:border-transparent hover:bg-gradient-to-r from-cyan-500 to-lightFourth mr-6 cursor-pointer"
+        className="inline-block px-3 py-2 text-black text-lg hover:scale-125 duration-200 border-white rounded-md hover:text-white hover:border-transparent hover:bg-gradient-to-r from-cyan-500 to-lightFourth mr-6 cursor-pointer"
       >
         Login
       </button>
@@ -48,7 +48,9 @@ function SignOut() {
   return (
     auth.currentUser && (
       <button
-        onClick={() => auth.signOut()} /*Dark: (hover:from-red-500 to-yellow-500) */
+        onClick={() =>
+          auth.signOut()
+        } /*Dark: (hover:from-red-500 to-yellow-500) */
         className="inline-block px-3 py-2 text-lg border rounded border-white hover:scale-125 duration-200 hover:border-transparent hover:bg-gradient-to-r from-cyan-500 to-lightFourth mr-6 cursor-pointer"
       >
         Sign out
