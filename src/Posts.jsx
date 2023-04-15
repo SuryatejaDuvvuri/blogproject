@@ -7,22 +7,21 @@ import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
 const db = app.firestore();
 
-const p = document.querySelector("#posts");
+// const p = document.querySelector("#posts");
 
-db.collection('articles').onSnapshot((snapshot) => {
+db.collection("articles").onSnapshot((snapshot) => {
+  snapshot.forEach((docs) => {
+    const d = docs.data();
+    const c = document.createElement("p");
+    c.textContent = d.content;
+    console.log(c.textContent);
 
-    snapshot.forEach((docs) => {
-        const d = docs.data();
-        const c = document.createElement('p');
-        c.textContent = d.content;
-        console.log(c.textContent);
-        
-        // p.textContent = d.content;
-        // document.querySelector("#posts").appendChild(contentE);
-    });
+    // p.textContent = d.content;
+    // document.querySelector("#posts").appendChild(contentE);
+  });
 });
 
-const posts = () => {
+const posts = ({ state, setState }) => {
   return (
     // dark:text-white dark:bg-primary
     <div className="text-black bg-light h-screen  overflow-auto p-6 box-border ">
@@ -34,7 +33,10 @@ const posts = () => {
         </li>
       </ul>
 
-      <article id = "posts" className="m-6 relative w-16/32 flex flex-col items-center justify-center subpixel-antialiased">
+      <article
+        id="posts"
+        className="m-6 relative w-16/32 flex flex-col items-center justify-center subpixel-antialiased"
+      >
         <img
           src="https://global-uploads.webflow.com/5eec789d24d891b6d1d15438/5f2051f6f89ec95914892138_b01-RSM-Design_UC-Riverside_Education-Signage-Design.jpg"
           alt="first"
@@ -45,12 +47,18 @@ const posts = () => {
           <BsNewspaper size="30" className="pl-1.5 mr-2 ml-2" />
           10 min read
         </h5>
-        <h2 id = "title" className="m-2 p-3 font-bold text-center text-4xl break-words overflow-hidden first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) ">
+        <h2
+          id="title"
+          className="m-2 p-3 font-bold text-center text-4xl break-words overflow-hidden first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) "
+        >
           Search trees with cheese: What Computer Science tells us
         </h2>
         <h6 className="prose-xl font-light">by Surya</h6>
         <div className="m-2 p-4 break-words box-border h-fit max-w-prose prose-lg leading-loose">
-          <p id = "title" className="first-letter:font-bold first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) ">
+          <p
+            id="title"
+            className="first-letter:font-bold first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) "
+          >
             The longest word in any of the major English language dictionaries
             is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers
             to a lung disease contracted from the inhalation of very fine silica
@@ -62,13 +70,15 @@ const posts = () => {
             to a series of rabies cases springing up around the country.
           </blockquote>
           <h1 className="font-bold">🎬 What is Binary Search Tree?</h1>
-          <p id = "post" className="first-letter:text-red-400  first-letter:font-bold">
+          <p
+            id="post"
+            className="first-letter:text-red-400  first-letter:font-bold"
+          >
             {/* The longest word in any of the major English language dictionaries
             is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers
             to a lung disease contracted from the inhalation of very fine silica
             particles, specifically from a volcano; medically, it is the same as
             silicosis. */}
-            
           </p>
           {/* colorScheme="dark" */}
           <Prism withLineNumbers colorScheme="light" language="cpp">
@@ -98,7 +108,7 @@ int PrintJob::getPages ( ){
           </ul>
           <p>And tables like this</p>
           <table className="w-full table-auto rounded-lg text-gray-400">
-          {/* dark:bg-gray-700 */}
+            {/* dark:bg-gray-700 */}
             <thead className="bg-light border-gray-900 border-b">
               <tr>
                 <th scope="col" className="px-6 py-3 border-r border-gray-900">
