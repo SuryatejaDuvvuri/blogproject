@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { WiDaySunny } from "react-icons/wi";
-import {useState} from "react";
 import Login from "./Login";
 
 export default function Bar(props) {
