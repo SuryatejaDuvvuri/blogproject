@@ -9,7 +9,7 @@ function Home(props) {
   
   function handleClick()
   {
-    isDark(!dark);
+    localStorage.setItem('isDark', !dark);
   }
 
   return (
