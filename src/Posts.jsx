@@ -21,10 +21,11 @@ db.collection("articles").onSnapshot((snapshot) => {
   });
 });
 
-const posts = ({ state, setState }) => {
+const posts = (props) => {
+  const {dark} = props;
   return (
-    // dark:text-white dark:bg-primary
-    <div className="text-black bg-light h-screen  overflow-auto p-6 box-border ">
+    <div className={dark ? `text-white bg-primary h-screen overflow-auto p-6 box-border`
+    :`text-black bg-light h-screen  overflow-auto p-6 box-border`}>
       <ul className="flex text-2xl space-x-4 py-5 px-5 ">
         <li>
           <Link to="/">
@@ -74,14 +75,13 @@ const posts = ({ state, setState }) => {
             id="post"
             className="first-letter:text-red-400  first-letter:font-bold"
           >
-            {/* The longest word in any of the major English language dictionaries
+            The longest word in any of the major English language dictionaries
             is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers
             to a lung disease contracted from the inhalation of very fine silica
             particles, specifically from a volcano; medically, it is the same as
-            silicosis. */}
+            silicosis.
           </p>
-          {/* colorScheme="dark" */}
-          <Prism withLineNumbers colorScheme="light" language="cpp">
+          <Prism withLineNumbers colorScheme = {dark ? `dark`:`light`} language="cpp">
             {`#include "PrintJob.h"
 
 PrintJob::PrintJob ( int setP, int setJ, int numP ):priority(setP), jobNumber(setJ), numPages(numP){}
@@ -108,13 +108,12 @@ int PrintJob::getPages ( ){
           </ul>
           <p>And tables like this</p>
           <table className="w-full table-auto rounded-lg text-gray-400">
-            {/* dark:bg-gray-700 */}
-            <thead className="bg-light border-gray-900 border-b">
+            <thead className={dark ? `bg-gray-700 border-b border-gray-200`:`bg-light border-gray-900 border-b`}>
               <tr>
-                <th scope="col" className="px-6 py-3 border-r border-gray-900">
+                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
                   Head1
                 </th>
-                <th scope="col" className="px-6 py-3 border-r border-gray-900">
+                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
                   Head1
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -124,11 +123,11 @@ int PrintJob::getPages ( ){
             </thead>
 
             <tbody>
-              <tr className=" border-gray-900 border-b">
-                <th scope="col" className="px-6 py-3 border-r border-gray-900">
+              <tr className=" bg-gray-800 border-gray-900 border-b">
+                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
                   ⛏️ Hello
                 </th>
-                <th scope="col" className="px-6 py-3 border-r border-gray-900">
+                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
                   🧠Hello
                 </th>
                 <th scope="col" className="px-6 py-3 ">
@@ -136,11 +135,11 @@ int PrintJob::getPages ( ){
                 </th>
               </tr>
               {/* dark:border-gray-500 */}
-              <tr className=" border-gray-900 ">
-                <th scope="col" className="px-6 py-3 border-r border-gray-900">
+              <tr className= {dark ? `bg-gray-800 border-gray-500`:`border-gray-900`} >
+                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
                   😨Hello
                 </th>
-                <th scope="col" className="px-6 py-3 border-r border-gray-900">
+                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
                   🌏Hello
                 </th>
                 <th scope="col" className="px-6 py-3 ">
@@ -153,7 +152,7 @@ int PrintJob::getPages ( ){
       </article>
 
       {/* Comments */}
-      <Footer />
+      <Footer dark = {dark}/>
 
       <Outlet />
     </div>

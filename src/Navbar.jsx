@@ -26,15 +26,9 @@ export default function Bar(props) {
         >
           About
         </a>
-        <a
-          href="#"
-          className={dark ? `mr-3 p-3 rounded-lg text-white hover:text-4xl hover:text-green-400 duration-200` : `mr-3 p-3 rounded-lg text-black hover:text-4xl hover:text-green-400 duration-200`}
-        >
-          Articles
-        </a>
       </div>
       <div class="flex flex-row mt-4 lg:mt-0 mr-0">
-        <Login />
+        <Login dark = {dark}/>
         <WiDaySunny onClick = {() => isDark(!dark)}
           size="45"
           className={dark ? `cursor-pointer hover:scale-125 duration-200 text-white`:`cursor-pointer hover:scale-125 duration-200 text-black` }
