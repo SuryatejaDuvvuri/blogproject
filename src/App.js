@@ -7,12 +7,14 @@ import Home from "./Home";
 import Posts from "./Posts";
 
 function App() {
-  const [dark, isDark] = useState(localStorage.getItem('isDark') === 'true' ? true : false);
+  const [dark, isDark] = useState(
+    localStorage.getItem("isDark") === "true" ? true : false
+  );
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home dark = {dark} isDark = {isDark}/>} />
-        <Route path="/posts" element={<Posts dark = {dark} />} />
+        <Route path="/" element={<Home dark={dark} isDark={isDark} />} />
+        <Route path="/posts" element={<Posts dark={dark} />} />
       </Routes>
     </Router>
   );

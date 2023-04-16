@@ -22,10 +22,15 @@ db.collection("articles").onSnapshot((snapshot) => {
 });
 
 const posts = (props) => {
-  const {dark} = props;
+  const { dark } = props;
   return (
-    <div className={dark ? `text-white bg-primary h-screen overflow-auto p-6 box-border`
-    :`text-black bg-light h-screen  overflow-auto p-6 box-border`}>
+    <div
+      className={
+        dark
+          ? `text-white bg-primary h-screen overflow-auto p-6 box-border`
+          : `text-black bg-light h-screen  overflow-auto p-6 box-border`
+      }
+    >
       <ul className="flex text-2xl space-x-4 py-5 px-5 ">
         <li>
           <Link to="/">
@@ -81,7 +86,11 @@ const posts = (props) => {
             particles, specifically from a volcano; medically, it is the same as
             silicosis.
           </p>
-          <Prism withLineNumbers colorScheme = {dark ? `dark`:`light`} language="cpp">
+          <Prism
+            withLineNumbers
+            colorScheme={dark ? `dark` : `light`}
+            language="cpp"
+          >
             {`#include "PrintJob.h"
 
 PrintJob::PrintJob ( int setP, int setJ, int numP ):priority(setP), jobNumber(setJ), numPages(numP){}
@@ -108,12 +117,32 @@ int PrintJob::getPages ( ){
           </ul>
           <p>And tables like this</p>
           <table className="w-full table-auto rounded-lg text-gray-400">
-            <thead className={dark ? `bg-gray-700 border-b border-gray-200`:`bg-light border-gray-900 border-b`}>
+            <thead
+              className={
+                dark
+                  ? `bg-gray-700 border-b border-gray-200`
+                  : `bg-light border-gray-900 border-b`
+              }
+            >
               <tr>
-                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
+                <th
+                  scope="col"
+                  className={
+                    dark
+                      ? `px-6 py-3 border-r border-gray-200`
+                      : `px-6 py-3 border-r border-gray-900`
+                  }
+                >
                   Head1
                 </th>
-                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
+                <th
+                  scope="col"
+                  className={
+                    dark
+                      ? `px-6 py-3 border-r border-gray-200`
+                      : `px-6 py-3 border-r border-gray-900`
+                  }
+                >
                   Head1
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -124,10 +153,24 @@ int PrintJob::getPages ( ){
 
             <tbody>
               <tr className=" bg-gray-800 border-gray-900 border-b">
-                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
+                <th
+                  scope="col"
+                  className={
+                    dark
+                      ? `px-6 py-3 border-r border-gray-200`
+                      : `px-6 py-3 border-r border-gray-900`
+                  }
+                >
                   ⛏️ Hello
                 </th>
-                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
+                <th
+                  scope="col"
+                  className={
+                    dark
+                      ? `px-6 py-3 border-r border-gray-200`
+                      : `px-6 py-3 border-r border-gray-900`
+                  }
+                >
                   🧠Hello
                 </th>
                 <th scope="col" className="px-6 py-3 ">
@@ -135,11 +178,29 @@ int PrintJob::getPages ( ){
                 </th>
               </tr>
               {/* dark:border-gray-500 */}
-              <tr className= {dark ? `bg-gray-800 border-gray-500`:`border-gray-900`} >
-                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
+              <tr
+                className={
+                  dark ? `bg-gray-800 border-gray-500` : `border-gray-900`
+                }
+              >
+                <th
+                  scope="col"
+                  className={
+                    dark
+                      ? `px-6 py-3 border-r border-gray-200`
+                      : `px-6 py-3 border-r border-gray-900`
+                  }
+                >
                   😨Hello
                 </th>
-                <th scope="col" className={dark ? `px-6 py-3 border-r border-gray-200`:`px-6 py-3 border-r border-gray-900`}>
+                <th
+                  scope="col"
+                  className={
+                    dark
+                      ? `px-6 py-3 border-r border-gray-200`
+                      : `px-6 py-3 border-r border-gray-900`
+                  }
+                >
                   🌏Hello
                 </th>
                 <th scope="col" className="px-6 py-3 ">
@@ -152,7 +213,7 @@ int PrintJob::getPages ( ){
       </article>
 
       {/* Comments */}
-      <Footer dark = {dark}/>
+      <Footer dark={dark} />
 
       <Outlet />
     </div>
