@@ -1,10 +1,35 @@
 import { GiSandsOfTime } from "react-icons/gi";
 import { BsNewspaper } from "react-icons/bs";
+import {useState, useEffect, React} from "react"
+import {client} from "./client";
 import Posts from "./Posts";
 import { Link } from "react-router-dom";
 
-const titles = (props) => {
+
+const Titles = (props) => {
   const { dark, isDark } = props;
+  const [post, setPost] = useState([])
+
+  useEffect(() => {
+      client.fetch(
+        `*[_type == "post"] {
+          title,
+          slug,
+          body,
+          code,
+          mainImage {
+            asset -> {
+              _id,
+              url
+            },
+            alt
+          }
+        }`
+      ).then((data)=> setPost(data)).catch(console.error)
+    }, [])
+
+  
+
   return (
     <div className="flex flex-col justify-center items-center prose-xl mb-7">
       <h1
@@ -35,7 +60,7 @@ const titles = (props) => {
         🌇 Recent posts
       </h2>
       <div className="flex flex-row gap-30 justify-center items-center mt-4">
-        <Link to="/Posts" className="hover:cursor-pointer">
+      {post[0] && <Link to = {`/posts/${post[0].slug.current}`}>
           <section
             className={
               dark
@@ -44,9 +69,9 @@ const titles = (props) => {
             }
           >
             <img
-              src="https://s.hdnux.com/photos/01/23/46/62/21916843/7/rawImage.jpg"
+              src={post[0].mainImage.asset.url}
               alt="sunset"
-              className="object-fill w-screen"
+              className="object-fill w-screen h-4/6"
             />
             <div className="group flex flex-row mt-5 flex-wrap flex-grow mr-6">
               <div
@@ -111,19 +136,17 @@ const titles = (props) => {
                   : `mb-2 mt-7 text-3xl font-bold text-black tracking-tight`
               }
             >
-              First blog
+              {post[0].title}
             </h1>
             <p
               className={
                 dark ? `mb-4 font-sans text-white` : `mb-4 font-sans text-black`
               }
             >
-              This blog is a community that welcomes Fellows from a wide range
-              of experiences and backgrounds. What perspective or experience
-              will you bring to the fellowship to strengthen our community?
+             {`${post[0].body[1].children[0].text.substring(0,200)}...`}
             </p>
           </section>
-        </Link>
+        </Link>}
 
         <Link to="/Posts" className="hover:cursor-pointer">
           <section
@@ -399,4 +422,4 @@ const titles = (props) => {
   );
 };
 
-export default titles;
+export default Titles;

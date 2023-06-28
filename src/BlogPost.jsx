@@ -1,16 +1,38 @@
+import {useState, useEffect, React} from "react"
+import {client} from "./client";
 import app from "./fireBaseConfig";
 import "firebase/compat/firestore";
 import { BsNewspaper } from "react-icons/bs";
 import { BiArrowBack } from "react-icons/bi";
 import { Prism } from "@mantine/prism";
-import { Link, Outlet } from "react-router-dom";
+import {PortableText} from "@portabletext/react"
+
+import { Link, Outlet, useParams } from "react-router-dom";
 import Footer from "./Footer";
-const db = app.firestore();
 
-// const p = document.querySelector("#posts");
+export default function BlogPost(props)
+{
+    const { dark } = props;
+    const [blog, setBlog] = useState([])
+    const {slug} = useParams();
 
-const Posts = (props) => {
-  const { dark } = props;
+  useEffect(() => {
+      client.fetch(
+        `*[slug.current == "${slug}"] {
+          title,
+          name,
+          body,
+          code,
+          mainImage {
+            asset -> {
+              _id,
+              url
+            },
+            alt
+          }, "name": author->name, 
+        }`
+      ).then((data)=> {setBlog(data[0])}).catch(console.error)
+    }, [slug])
 
   return (
     <div
@@ -28,15 +50,15 @@ const Posts = (props) => {
         </li>
       </ul>
 
-      <article
+      {blog && <article
         id="posts"
         className="m-6 relative w-16/32 flex flex-col items-center justify-center subpixel-antialiased"
       >
-        <img
-          src="https://global-uploads.webflow.com/5eec789d24d891b6d1d15438/5f2051f6f89ec95914892138_b01-RSM-Design_UC-Riverside_Education-Signage-Design.jpg"
+        {blog.mainImage && <img
+          src={blog.mainImage.asset.url}
           alt="first"
           className="object-fill rounded-xl w-1/2 h-1/2"
-        />
+        />}
         <h5 className="prose-lg flex m-2 p-2 flex-row font-bold font-opacity tracking-tight">
           March 7th, 2023
           <BsNewspaper size="30" className="pl-1.5 mr-2 ml-2" />
@@ -46,35 +68,28 @@ const Posts = (props) => {
           id="title"
           className="m-2 p-3 font-bold text-center text-4xl break-words overflow-hidden first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) "
         >
-          Search trees with cheese: What Computer Science tells us
+          {blog.title}
         </h2>
-        <h6 className="prose-xl font-light">by Surya</h6>
+        <h6 className="prose-xl font-light">By {blog.name}</h6>
         <div className="m-2 p-4 break-words box-border h-fit max-w-prose prose-lg leading-loose">
-          <p
+          {/* <p
             id="title"
             className="first-letter:font-bold first-letter:text-transparent bg-clip-text bg-gradient-to-r (from-cyan-500 to-lightFourth) "
           >
-            The longest word in any of the major English language dictionaries
-            is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers
-            to a lung disease contracted from the inhalation of very fine silica
-            particles, specifically from a volcano; medically, it is the same as
-            silicosis.
-          </p>
-          <blockquote className="border-solid border-white-900 border-l">
+            
+          </p> */}
+          {/* <blockquote className="border-solid border-white-900 border-l">
             But a recent study shows that the celebrated appetizer may be linked
             to a series of rabies cases springing up around the country.
-          </blockquote>
-          <h1 className="font-bold">🎬 What is Binary Search Tree?</h1>
+          </blockquote> */}
           <p
             id="post"
             className="first-letter:text-red-400  first-letter:font-bold"
           >
-            The longest word in any of the major English language dictionaries
-            is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers
-            to a lung disease contracted from the inhalation of very fine silica
-            particles, specifically from a volcano; medically, it is the same as
-            silicosis.
+            <PortableText value = {blog.body}/>
           </p>
+
+
           <Prism
             withLineNumbers
             colorScheme={dark ? `dark` : `light`}
@@ -199,7 +214,7 @@ int PrintJob::getPages ( ){
             </tbody>
           </table>
         </div>
-      </article>
+      </article>}
 
       {/* Comments */}
       <Footer dark={dark} />
@@ -207,6 +222,4 @@ int PrintJob::getPages ( ){
       <Outlet />
     </div>
   );
-};
-
-export default Posts;
+}

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Main from "./Main";
 import Home from "./Home";
+import BlogPost from "./BlogPost"
 // import Footer from "./Footer";
 import Posts from "./Posts";
 
@@ -14,7 +15,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home dark={dark} isDark={isDark} />} />
-        <Route path="/posts" element={<Posts dark={dark} />} />
+        {/* <Route path="/posts" element={<Posts dark={dark} />} /> */}
+        <Route path = "/posts/:slug" element = {<BlogPost dark = {dark}/>}></Route>
       </Routes>
     </Router>
   );
