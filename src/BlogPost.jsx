@@ -5,6 +5,7 @@ import "firebase/compat/firestore";
 import { BsNewspaper } from "react-icons/bs";
 import { BiArrowBack } from "react-icons/bi";
 import { Prism } from "@mantine/prism";
+// import Refractor from 'react-refractor'
 import {PortableText} from "@portabletext/react"
 
 import { Link, Outlet, useParams } from "react-router-dom";
@@ -15,14 +16,13 @@ export default function BlogPost(props)
     const { dark } = props;
     const [blog, setBlog] = useState([])
     const {slug} = useParams();
-
+    
   useEffect(() => {
       client.fetch(
         `*[slug.current == "${slug}"] {
           title,
           name,
           body,
-          code,
           mainImage {
             asset -> {
               _id,
@@ -33,6 +33,22 @@ export default function BlogPost(props)
         }`
       ).then((data)=> {setBlog(data[0])}).catch(console.error)
     }, [slug])
+
+
+const myPortableTextComponents = {
+    types: {
+        code:({value}) => {
+            return (
+                <Prism withLineNumbers
+                colorScheme={dark ? `dark` : `light`}
+                language = {value.language}>
+                    {value.code}
+                </Prism>
+            )
+        }
+    }
+}
+
 
   return (
     <div
@@ -86,11 +102,12 @@ export default function BlogPost(props)
             id="post"
             className="first-letter:text-red-400  first-letter:font-bold"
           >
-            <PortableText value = {blog.body}/>
+
+           <PortableText value = {blog.body} components={myPortableTextComponents}/>
           </p>
 
 
-          <Prism
+          {/* <Prism
             withLineNumbers
             colorScheme={dark ? `dark` : `light`}
             language="cpp"
@@ -109,7 +126,7 @@ int PrintJob::getJobNumber ( ){
 int PrintJob::getPages ( ){
   return numPages;
 }`}
-          </Prism>
+          </Prism> */}
 
           <h2>What else?</h2>
           <p>You can display numbers like this</p>

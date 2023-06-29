@@ -47,13 +47,8 @@ export default defineType({
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'blockContent'
     }),
-    defineField({
-      type: 'code',
-      name: 'myCodeField',
-      title: 'My code field',
-    })
   ],
 
   preview: {

@@ -16,7 +16,6 @@ const Titles = (props) => {
           title,
           slug,
           body,
-          code,
           mainImage {
             asset -> {
               _id,
@@ -143,7 +142,7 @@ const Titles = (props) => {
                 dark ? `mb-4 font-sans text-white` : `mb-4 font-sans text-black`
               }
             >
-             {`${post[0].body[1].children[0].text.substring(0,200)}...`}
+             {`${post[0].body[2].children[0].text.substring(0,200)}...`}
             </p>
           </section>
         </Link>}
