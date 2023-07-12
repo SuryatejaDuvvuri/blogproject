@@ -23,6 +23,7 @@ export default function BlogPost(props)
           title,
           name,
           body,
+          publishedAt,
           mainImage {
             asset -> {
               _id,
@@ -30,7 +31,7 @@ export default function BlogPost(props)
             },
             alt
           }, "name": author->name, 
-        }`
+        } | order(publishedAt desc)`
       ).then((data)=> {setBlog(data[0])}).catch(console.error)
     }, [slug])
 

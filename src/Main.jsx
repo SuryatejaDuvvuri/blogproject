@@ -4,6 +4,7 @@ import {useState, useEffect, React} from "react"
 import {client} from "./client";
 import Posts from "./Posts";
 import { Link } from "react-router-dom";
+import { format } from "prettier";
 
 
 const Titles = (props) => {
@@ -16,6 +17,8 @@ const Titles = (props) => {
           title,
           slug,
           body,
+          timeToRead,
+          publishedAt,
           mainImage {
             asset -> {
               _id,
@@ -26,9 +29,6 @@ const Titles = (props) => {
         }`
       ).then((data)=> setPost(data)).catch(console.error)
     }, [])
-
-  
-
   return (
     <div className="flex flex-col justify-center items-center prose-xl mb-7">
       <h1
@@ -58,9 +58,106 @@ const Titles = (props) => {
       >
         🌇 Recent posts
       </h2>
-      <div className="flex flex-row gap-30 justify-center items-center mt-4">
-      {post[0] && <Link to = {`/posts/${post[0].slug.current}`}>
-          <section
+      <div className="grid grid-cols-2 gap-15 justify-center items-center mb-5 mt-5">
+
+        {post.map((blogPost) => (
+          <Link to = {`/posts/${blogPost.slug.current}`}>
+          <section key = {blogPost.slug.current}
+            className={
+              dark
+                ? `group block border-sky-500 rounded-xl items-center justify-center space-y-2 max-h-lg max-w-lg p-6 border-double border-8 shadow-sm shadow-emerald-50 mr-7 hover:scale-110 duration-300`
+                : `group block rounded-xl items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 border-black shadow-sm shadow-emerald-50 mr-7 hover:scale-110 duration-300`
+            }
+          >
+            <img
+              src={blogPost.mainImage.asset.url}
+              alt="sunset"
+              className="object-fill w-screen h-4/6"
+            />
+            <div className="group flex">
+
+              <div
+                    className={
+                      dark
+                        ? `inline-block rounded-md px-3 mr-6`
+                        : `bg-black inline-block rounded-md px-3 py-1 mr-6`
+                    }
+                  >
+                    <div
+                        className={
+                          dark
+                            ? `font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500`
+                            : `font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-lightFourth `
+                        }
+                      >
+                        NEW!
+                      </div>
+                </div>
+
+                <span> <BsNewspaper
+                size="38"
+                className={dark ? `text-white inline-block pl-1.5` : `text-black inline-block  pl-1.5`}
+              /></span>
+              <h5
+                className={
+                  dark
+                    ? `font-sans px-3 py-1 mr-2 text-white text-opacity-60`
+                    : `font-sans px-3 py-1 mr-2 text-black text-opacity-60`
+                }
+              >
+               Articles
+              </h5>
+              {/* <time
+                className={
+                  dark
+                    ? `px-1.5 py-1 mr-3 text-white text-opacity-60`
+                    : `px-1.5 py-1 mr-3 text-black text-opacity-60`
+                }
+              >
+                {format(new Date(blogPost.publishedAt), "dd MMMM yyyy")}
+              </time> */}
+
+              {/* <p className={
+                  dark
+                    ? `px-1.5 py-1 mr-3 text-white text-opacity-60`
+                    : `px-1.5 py-1 mr-3 text-black text-opacity-60`}>
+              {format(new Date(blogPost.publishedAt), "dd MMMM yyyy")}
+              </p> */}
+              
+              <h5 className={
+                  dark
+                    ? `px-3 py-1 mr-2 text-white text-opacity-60`
+                    : `px-3 py-1 mr-2 text-black text-opacity-60`
+                }
+              >
+                <span><GiSandsOfTime
+                size="38"
+                className={dark ? `text-white inline-block pl-1.5` : `text-black inline-block pl-1.5`}
+              /></span>
+                {blogPost.timeToRead != null ? `${blogPost.timeToRead} min read` : "2 min read"}
+              </h5>
+            </div>
+            <h1
+              className={
+                dark
+                  ? `mb-2 mt-10 text-3xl font-bold text-blue-200 tracking-tight`
+                  : `mb-2 mt-10 text-3xl font-bold text-black tracking-tight`
+              }
+            >
+              {blogPost.title}
+            </h1>
+            <p
+              className={
+                dark ? `mb-4 font-sans text-white` : `mb-4 font-sans text-black`
+              }
+            >
+             {`${blogPost.body[2].children[0].text.substring(0,200)}...`}
+            </p>
+          </section>
+        </Link>
+        ))}
+      {/* {post[0] && <Link to = {`/posts/${post[0].slug.current}`}>
+          <section key = {blogPost.slug.current}
             className={
               dark
                 ? `group inline-block border-sky-500 rounded-xl items-center justify-center space-y-2 max-h-lg max-w-md p-3 border-double border-8 shadow-sm shadow-emerald-50 mr-7 hover:scale-110 duration-300`
@@ -73,14 +170,14 @@ const Titles = (props) => {
               className="object-fill w-screen h-4/6"
             />
             <div className="group flex flex-row mt-5 flex-wrap flex-grow mr-6">
-              <div
+             <div
                 className={
                   dark
                     ? `inline-block rounded-md px-3 py-1 mr-6`
                     : `bg-black inline-block rounded-md px-3 py-1 mr-6`
                 }
               >
-                <div
+              <div
                   className={
                     dark
                       ? `font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500`
@@ -111,7 +208,7 @@ const Titles = (props) => {
                     : `px-1.5 py-1 mr-3 text-black text-opacity-60`
                 }
               >
-                April 7, 2023
+                {post[0].publishedAt}
               </time>
 
               <GiSandsOfTime
@@ -145,8 +242,8 @@ const Titles = (props) => {
              {`${post[0].body[2].children[0].text.substring(0,200)}...`}
             </p>
           </section>
-        </Link>}
-
+        </Link>} */}
+{/* 
         <Link to="/Posts" className="hover:cursor-pointer">
           <section
             className={
@@ -415,7 +512,7 @@ const Titles = (props) => {
               will you bring to the fellowship to strengthen our community?
             </p>
           </section>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

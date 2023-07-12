@@ -45,6 +45,12 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'timeToRead',
+      title: 'Time to Read',
+      type: 'number',
+      validation: Rule => Rule.required().min(2).max(22),
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent'

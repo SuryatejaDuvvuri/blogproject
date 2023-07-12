@@ -16,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home dark={dark} isDark={isDark} />} />
         {/* <Route path="/posts" element={<Posts dark={dark} />} /> */}
+        {/* <Route path = "/Form" element = {<BlogForm dark = {dark}/>} />  */}
         <Route path = "/posts/:slug" element = {<BlogPost dark = {dark}/>}></Route>
       </Routes>
     </Router>
