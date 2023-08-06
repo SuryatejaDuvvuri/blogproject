@@ -46,8 +46,6 @@ export default function Bar(props) {
             }
           />
         </div>
-
-
       </nav>
     </>
   );

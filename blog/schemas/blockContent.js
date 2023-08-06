@@ -29,9 +29,12 @@ export default defineType({
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
-        {title: 'Hidden', value: 'blockComment' }
+        {title: 'Hidden', value: 'blockComment'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'},{title: 'Numbered', value: 'number'}],
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number'},
+      ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
@@ -39,8 +42,8 @@ export default defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
-          { title: 'Code', value: 'code' },
-          { title: 'Highlight', value: 'highlight' }
+          {title: 'Code', value: 'code'},
+          {title: 'Highlight', value: 'highlight'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -67,13 +70,13 @@ export default defineType({
       options: {hotspot: true},
     }),
     defineArrayMember({
-        name: "code",
-        title: "Code Block",
-        type: "code",
-        options: {
-          withFilename: true, // optional
-          highlightedLines: true, // optional
-        }
+      name: 'code',
+      title: 'Code Block',
+      type: 'code',
+      options: {
+        withFilename: true, // optional
+        highlightedLines: true, // optional
+      },
     }),
   ],
 })

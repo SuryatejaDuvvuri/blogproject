@@ -48,12 +48,12 @@ export default defineType({
       name: 'timeToRead',
       title: 'Time to Read',
       type: 'number',
-      validation: Rule => Rule.required().min(2).max(22),
+      validation: (Rule) => Rule.required().min(2).max(22),
     }),
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      type: 'blockContent',
     }),
   ],
 

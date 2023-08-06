@@ -1,11 +1,9 @@
-import app from "./fireBaseConfig";
 import "firebase/compat/firestore";
 import { BsNewspaper } from "react-icons/bs";
 import { BiArrowBack } from "react-icons/bi";
 import { Prism } from "@mantine/prism";
 import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
-const db = app.firestore();
 
 // const p = document.querySelector("#posts");
 

@@ -1,10 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap");
 
 @layer components {
   :root {
     color-scheme: light dark;
+    font-family: "DM Sans";
+    font-size: medium;
   }
   #title {
     @apply first-letter:text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500 first-letter:text-6xl;
