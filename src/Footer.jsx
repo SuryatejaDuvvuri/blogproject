@@ -2,13 +2,13 @@ import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 const design = (props) => {
   const { dark } = props;
   return (
-    <div className = "absolute left-0 right-0 bottom-0">
+    <div className = "flex flex-col justify-evenly items-stretch">
       <hr className="mt-4 border-gray-700 m-auto w-3/4 text-center" />
       <footer
         className={
           dark
-            ? `m-6 border-gray-200 flex flex-row justify-between items-center  text-gray-300`
-            : `m-6 border-gray-200 flex flex-row justify-between items-center  text-gray-800 `
+            ? `m-6 border-gray-200 flex flex-row justify-between items-center text-gray-300`
+            : `m-6 border-gray-200 flex flex-row justify-between items-center text-gray-800 `
         }
       >
         <span className="text-lg mx-6">
