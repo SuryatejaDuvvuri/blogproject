@@ -2,7 +2,7 @@
 import app, { provider } from "./fireBaseConfig";
 import "firebase/compat/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-const auth = app.auth();
+const auth = ""
 
 function Login(props) {
   const [user] = useAuthState(auth);
