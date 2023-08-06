@@ -84,7 +84,7 @@ export default function BlogPost(props) {
             />
           )}
           <h5 className="prose-lg flex m-2 p-2 flex-row font-bold font-opacity tracking-tight">
-            March 7th, 2023
+            {new Date(blog.publishedAt).toLocaleString()}
             <BsNewspaper size="30" className="pl-1.5 mr-2 ml-2" />
             10 min read
           </h5>
