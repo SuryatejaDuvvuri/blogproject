@@ -32,6 +32,8 @@ const Titles = (props) => {
       .catch(console.error);
   }, []);
 
+  // console.log(post[0].body)
+
   const postLength = post.length;
 
   return (
@@ -164,7 +166,7 @@ const Titles = (props) => {
                       ? `mb-4 font-sans text-white`
                       : `mb-4 font-sans text-black`}
                 >
-                  {`${blogPost.body[2].children[0].text.substring(0, 200)}...`}
+                  {blogPost.body[1].style === "normal" ? `${blogPost.body[1].children[0].text.substring(0, 200)}...` : `${blogPost.body[0].children[0].text.substring(0, 200)}...`}
                 </p>
               </section>
             </Link>
