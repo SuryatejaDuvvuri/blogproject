@@ -53,9 +53,13 @@ export default defineType({
             type: 'object',
             fields: [
               {
-                title: 'URL',
-                name: 'href',
-                type: 'url',
+                type: 'text',
+                name: 'alt',
+                title: 'Alternative text',
+                description: `Write your description page.`,
+                options: {
+                  isHighlighted: true
+                }
               },
             ],
           },
@@ -67,7 +71,14 @@ export default defineType({
     // as a block type.
     defineArrayMember({
       type: 'image',
-      options: {hotspot: true},
+      fields: [
+        {
+          type: 'text',
+          title: 'Alternative Text',
+          description: 'Etc etc.',
+        }
+      ]
+
     }),
     defineArrayMember({
       name: 'code',

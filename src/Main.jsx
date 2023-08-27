@@ -164,9 +164,18 @@ const Titles = (props) => {
                   className={
                     dark
                       ? `mb-4 font-sans text-white`
-                      : `mb-4 font-sans text-black`}
+                      : `mb-4 font-sans text-black`
+                  }
                 >
-                  {blogPost.body[1].style === "normal" ? `${blogPost.body[1].children[0].text.substring(0, 200)}...` : `${blogPost.body[0].children[0].text.substring(0, 200)}...`}
+                  {blogPost.body[1].style === "normal"
+                    ? `${blogPost.body[1].children[0].text.substring(
+                        0,
+                        200
+                      )}...`
+                    : `${blogPost.body[0].children[0].text.substring(
+                        0,
+                        200
+                      )}...`}
                 </p>
               </section>
             </Link>

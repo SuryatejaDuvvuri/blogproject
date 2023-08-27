@@ -2,7 +2,7 @@ import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 const design = (props) => {
   const { dark } = props;
   return (
-    <div className = "flex flex-col justify-evenly items-stretch">
+    <div className="flex flex-col justify-evenly items-stretch">
       <hr className="mt-4 border-gray-700 m-auto w-3/4 text-center" />
       <footer
         className={

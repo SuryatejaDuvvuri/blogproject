@@ -7,6 +7,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { Prism } from "@mantine/prism";
 // import Refractor from 'react-refractor'
 import { PortableText } from "@portabletext/react";
+import urlBuilder from '@sanity/image-url'
 
 import { Link, Outlet, useParams } from "react-router-dom";
 import Footer from "./Footer";
@@ -39,9 +40,16 @@ export default function BlogPost(props) {
       .catch(console.error);
   }, [slug]);
 
-  const myPortableTextComponents = {
+const builder = urlBuilder(client);
+
+function urlFor(source) {
+  return builder.image(source)
+}
+
+  const components = {
     types: {
       code: ({ value }) => {
+
         return (
           <Prism
             withLineNumbers
@@ -52,6 +60,13 @@ export default function BlogPost(props) {
           </Prism>
         );
       },
+      image: ({value}) => {
+        // console.log(value.asset._ref.toString().lastIndexOf('-'));
+        return (
+          // <img src = {`https://cdn.sanity.io/images/50nsmgba/production/${value.asset._ref}`} alt = "image" width = "50%" height = "50%" />
+          <img src = {urlFor(value.asset._ref).fit('max').url()} />
+        )
+      }
     },
   };
 
@@ -112,7 +127,7 @@ export default function BlogPost(props) {
             >
               <PortableText
                 value={blog.body}
-                components={myPortableTextComponents}
+                components={components}
               />
             </p>
 
