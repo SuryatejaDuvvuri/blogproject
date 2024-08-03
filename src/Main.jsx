@@ -18,21 +18,21 @@ const Titles = (props) => {
           slug,
           body,
           publishedAt,
-          timetoread,
           mainImage {
             asset -> {
               _id,
               url
             },
             alt
-          }
+          },
+          timeToRead
         }`
       )
       .then((data) => setPost(data))
       .catch(console.error);
   }, []);
 
-  // console.log(post[0].body)
+  // console.log(post[0].timeToRead);
 
   const postLength = post.length;
 
@@ -135,7 +135,7 @@ const Titles = (props) => {
                         ? `px-3 py-1 mr-2 text-white text-opacity-60`
                         : `px-3 py-1 mr-2 text-black text-opacity-60`
                     }
-                  >
+                  > 
                     <span>
                       <GiSandsOfTime
                         size="38"
@@ -146,9 +146,10 @@ const Titles = (props) => {
                         }
                       />
                     </span>
-                    {blogPost.timetoread != null
-                      ? `${blogPost.timetoread} min read`
+                    {blogPost.timeToRead!= null
+                      ? `${blogPost.timeToRead} min read`
                       : "2 min read"}
+                      
                   </h5>
                 </div>
                 <h1
