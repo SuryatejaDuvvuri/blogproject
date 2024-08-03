@@ -17,8 +17,8 @@ const Titles = (props) => {
           title,
           slug,
           body,
-          timeToRead,
           publishedAt,
+          timetoread,
           mainImage {
             asset -> {
               _id,
@@ -146,8 +146,8 @@ const Titles = (props) => {
                         }
                       />
                     </span>
-                    {blogPost.timeToRead != null
-                      ? `${blogPost.timeToRead} min read`
+                    {blogPost.timetoread != null
+                      ? `${blogPost.timetoread} min read`
                       : "2 min read"}
                   </h5>
                 </div>
