@@ -25,13 +25,15 @@ export default function BlogPost(props) {
           name,
           body,
           publishedAt,
+          timetoread,
           mainImage {
             asset -> {
               _id,
               url
             },
             alt
-          }, "name": author->name, 
+          }, timeToRead,
+          "name": author->name, 
         } | order(publishedAt desc)`
       )
       .then((data) => {
@@ -101,7 +103,9 @@ function urlFor(source) {
           <h5 className="prose-lg flex m-2 p-2 flex-row font-bold font-opacity tracking-tight">
             {new Date(blog.publishedAt).toLocaleDateString()}
             <BsNewspaper size="30" className="pl-1.5 mr-2 ml-2" />
-            10 min read
+            {blog.timetoread!= null
+                      ? `${blog.timetoread} min read`
+                      : "2 min read"}
           </h5>
           <h2
             id="title"
