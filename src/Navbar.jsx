@@ -13,8 +13,8 @@ export default function Bar(props) {
     <>
       <nav className="mt-3 dark:text-white text-black py-5 px-5 flex flex-row items-center justify-between flex-wrap space-x-4 ">
         <div className="w-full block lg:w-auto text-3xl tracking-wider">
-          <a
-            href="https://suryatejaduvvuri.github.io/"
+{/*           <a
+            href="https://suryatejaduvvuri.vercel.app/"
             className={
               dark
                 ? `mr-3 p-3 rounded-lg text-white hover:text-4xl hover:text-green-400 duration-200`
@@ -22,9 +22,9 @@ export default function Bar(props) {
             }
           >
             Home
-          </a>
+          </a> */}
           <a
-            href="https://suryatejaduvvuri.github.io/About.html"
+            href="https://suryatejaduvvuri.vercel.app/"
             className={
               dark
                 ? `mr-3 p-3 rounded-lg text-white hover:text-4xl hover:text-green-400 duration-200`
